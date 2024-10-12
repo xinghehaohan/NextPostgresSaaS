@@ -1,6 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { ArrowRight, LineChart, BarChart3, PieChart, Wallet } from 'lucide-react';
-import { Terminal } from './terminal';
+import { ArrowRight, LineChart, BarChart3, Wallet } from 'lucide-react';
 
 export default function HomePage() {
   return (

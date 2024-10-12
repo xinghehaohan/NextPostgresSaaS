@@ -1,8 +1,9 @@
 import { desc, and, eq, isNull } from 'drizzle-orm';
 import { db } from './drizzle';
-import { activityLogs, teamMembers, teams, users } from './schema';
+import { activityLogs, teamMembers, teams, users, stocks_analysis } from './schema';
 import { cookies } from 'next/headers';
 import { verifyToken } from '@/lib/auth/session';
+import { sql } from 'drizzle-orm';
 
 export async function getUser() {
   const sessionCookie = cookies().get('session');
@@ -126,4 +127,16 @@ export async function getTeamForUser(userId: number) {
   });
 
   return result?.teamMembers[0]?.team || null;
+}
+
+export async function getFilterOptions() {
+  const sectors = await db.select({ value: stocks_analysis.sector }).from(stocks_analysis).groupBy(stocks_analysis.sector);
+  const analysts = await db.select({ value: stocks_analysis.analyst }).from(stocks_analysis).groupBy(stocks_analysis.analyst);
+  const ratings = await db.select({ value: stocks_analysis.rating }).from(stocks_analysis).groupBy(stocks_analysis.rating);
+
+  return {
+    sectors: sectors.map(s => s.value),
+    analysts: analysts.map(a => a.value),
+    ratings: ratings.map(r => r.value),
+  };
 }

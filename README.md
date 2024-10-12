@@ -1,5 +1,7 @@
 # Next.js SaaS with Shadcn Postgres Project
 
+ Building a stock analysis platform inspired by Morningstar, focusing specifically on providing investment insights for individual stocks, analysts, and user ratings. The product will have features for viewing detailed analysis, browsing stocks by sector, and getting actionable insights in an easy-to-navigate interface.
+
 This is a SaaS application using **Next.js** with support for authentication, Stripe integration for payments, and a dashboard for logged-in users.
 
 ## Features

@@ -5,6 +5,7 @@ import { UserProvider } from "@/lib/auth";
 import { getUser } from "@/lib/db/queries";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
   title: "Next.js SaaS",
@@ -36,7 +37,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ThemeToggle />
-          <UserProvider userPromise={userPromise}>{children}</UserProvider>
+          <TooltipProvider>
+            <UserProvider userPromise={userPromise}>{children}</UserProvider>
+          </TooltipProvider>
         </ThemeProvider>
       </body>
     </html>

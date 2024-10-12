@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Users, Settings, Shield, Activity, Menu } from 'lucide-react';
-import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function DashboardLayout({
   children,

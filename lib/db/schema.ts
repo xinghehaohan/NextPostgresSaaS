@@ -5,6 +5,7 @@ import {
   text,
   timestamp,
   integer,
+  date,
 } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
@@ -111,6 +112,14 @@ export const activityLogsRelations = relations(activityLogs, ({ one }) => ({
     references: [users.id],
   }),
 }));
+
+export const stocks_analysis = pgTable('stocks_analysis', {
+  sector: varchar('sector', { length: 255 }),
+  analyst: varchar('analyst', { length: 255 }),
+  coverage_date: date('coverage_date'),
+  rating: varchar('rating', { length: 255 }),
+  analysis: text('analysis'),
+});
 
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
