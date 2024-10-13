@@ -4,7 +4,6 @@ import { Manrope } from "next/font/google";
 import { UserProvider } from "@/lib/auth";
 import { getUser } from "@/lib/db/queries";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 export const metadata: Metadata = {
@@ -36,7 +35,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ThemeToggle />
           <TooltipProvider>
             <UserProvider userPromise={userPromise}>{children}</UserProvider>
           </TooltipProvider>

@@ -6,6 +6,7 @@ import {
   timestamp,
   integer,
   date,
+  decimal,
 } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
@@ -121,6 +122,20 @@ export const stocks_analysis = pgTable('stocks_analysis', {
   analysis: text('analysis'),
 });
 
+export const topPerforming = pgTable('top_performing', {
+  id: serial('id').primaryKey(),
+  rank: varchar('rank', { length: 255 }).notNull(),
+  analyst: varchar('analyst', { length: 255 }).notNull(),
+  analystImg: text('analyst_img'),
+  successRate: varchar('success_rate', { length: 10 }).notNull(),
+  averageReturn: varchar('average_return', { length: 10 }).notNull(),
+  numberOfRatings: varchar('number_of_ratings', { length: 50 }).notNull(),
+  latestCoverageStock: varchar('latest_coverage_stock', { length: 10 }),
+  latestCoverageArticle: text('latest_coverage_article'),
+  coverageDate: varchar('coverage_date', { length: 20 }),
+  latestRating: varchar('latest_rating', { length: 20 }),
+});
+
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type Team = typeof teams.$inferSelect;
@@ -149,3 +164,6 @@ export enum ActivityType {
   INVITE_TEAM_MEMBER = 'INVITE_TEAM_MEMBER',
   ACCEPT_INVITATION = 'ACCEPT_INVITATION',
 }
+
+export type TopPerforming = typeof topPerforming.$inferSelect;
+export type NewTopPerforming = typeof topPerforming.$inferInsert;

@@ -198,18 +198,18 @@ const data = {
   ],
   projects: [
     {
-      name: "Top Analyst Ideas",
-      url: "stock-analysis",
-      icon: Frame,
-    },
-    {
       name: "Top Performing",
       url: "top-performing",
       icon: PieChart,
     },
     {
-      name: "Travel",
-      url: "#",
+      name: "Top Analyst Ideas",
+      url: "stock-analysis",
+      icon: Frame,
+    },
+    {
+      name: "Home",
+      url: "/",
       icon: Map,
     },
   ],

@@ -1,7 +1,7 @@
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarLayout, SidebarTrigger } from "@/components/ui/sidebar";
-import AnalysisList from "../components/AnalysisList";
 
+import StockAnalysisManager from "../components/StockAnalysisManager";
 
 export default async function Page() {
   const { cookies } = await import("next/headers");
@@ -13,8 +13,8 @@ export default async function Page() {
       <main className="flex flex-1 flex-col p-2 transition-all duration-300 ease-in-out">
         <div className="h-full rounded-md border-2 border-dashed p-2">
           <SidebarTrigger />
+          <StockAnalysisManager />
         </div>
-        <AnalysisList />
       </main>
     </SidebarLayout>
   );

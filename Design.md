@@ -72,4 +72,26 @@
    - **State Management**: Zustand for stateful components, especially watchlist and analysis interactions.
    - **Authentication**: Integrate Clerk for user registration and authentication management.
 
+   CREATE TABLE stocks_analysis (
+    sector VARCHAR(255),
+    analyst VARCHAR(255),
+    coverage_date DATE,
+    rating VARCHAR(255),
+    analysis TEXT
+);
+
+CREATE TABLE top_performing (
+  id SERIAL PRIMARY KEY,
+  rank INTEGER NOT NULL,
+  analyst VARCHAR(255) NOT NULL,
+  analyst_img TEXT,
+  success_rate DECIMAL(5,2) NOT NULL,
+  average_return DECIMAL(6,2) NOT NULL,
+  number_of_ratings INTEGER NOT NULL,
+  latest_coverage_stock VARCHAR(10),
+  latest_coverage_article TEXT,
+  coverage_date DATE,
+  latest_rating VARCHAR(20)
+);
+
 

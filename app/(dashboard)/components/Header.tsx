@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CircleIcon, Home, LogOut } from 'lucide-react';
+import { CircleIcon, Home, LogOut,Notebook } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +12,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useUser } from '@/lib/auth';
 import { signOut } from '@/app/(login)/actions';
 import { useRouter } from 'next/navigation';
+import { ThemeToggle } from "@/components/theme-toggle";
 
 
 export function Header() {
@@ -39,6 +40,7 @@ export function Header() {
             >
               Pricing
             </Link>
+            <ThemeToggle />
             {user ? (
               <DropdownMenu open={isMenuOpen} onOpenChange={setIsMenuOpen}>
                 <DropdownMenuTrigger asChild>
@@ -57,6 +59,12 @@ export function Header() {
                     <Link href="/dashboard" className="flex w-full items-center">
                       <Home className="mr-2 h-4 w-4" />
                       <span>Dashboard</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">
+                    <Link href="/top-performing" className="flex w-full items-center">
+                      <Notebook className="mr-2 h-4 w-4" />
+                      <span>Analysts</span>
                     </Link>
                   </DropdownMenuItem>
                   <form action={handleSignOut} className="w-full">

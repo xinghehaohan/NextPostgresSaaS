@@ -1,6 +1,6 @@
 import { desc, and, eq, isNull } from 'drizzle-orm';
 import { db } from './drizzle';
-import { activityLogs, teamMembers, teams, users, stocks_analysis } from './schema';
+import { activityLogs, teamMembers, teams, users, stocks_analysis, topPerforming } from './schema';
 import { cookies } from 'next/headers';
 import { verifyToken } from '@/lib/auth/session';
 import { sql } from 'drizzle-orm';
@@ -139,4 +139,8 @@ export async function getFilterOptions() {
     analysts: analysts.map(a => a.value),
     ratings: ratings.map(r => r.value),
   };
+}
+
+export async function getTopPerformingAnalysts() {
+  return await db.select().from(topPerforming).execute();
 }

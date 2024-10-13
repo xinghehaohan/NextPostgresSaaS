@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 const teamMembers = [
   { name: 'Lianna Su', role: 'CEO', avatar: '/avatars/lianna-su.jpg', twitter: '@su', linkedin: 'lianna-su', github: 'Su' },
-  { name: 'Johnsmith', role: 'CTO', avatar: '/avatars/john-smith.jpg', twitter: '@johnsmith', linkedin: 'john-smith', github: 'johnsmith' },
+  { name: 'KunYang Wu', role: 'CTO', avatar: '/avatars/john-smith.jpg', twitter: '@johnsmith', linkedin: 'john-smith', github: 'johnsmith' },
   { name: 'Alice Johnson', role: 'Lead Analyst', avatar: '/avatars/alice-johnson.jpg', twitter: '@alicejohnson', linkedin: 'alice-johnson', github: 'alicejohnson' },
 ];
 
