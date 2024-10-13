@@ -34,7 +34,7 @@ function StockAnalysisManager() {
         sortBy,
         sortOrder,
         page: page.toString(),
-        limit: '10',
+        limit: '20',
       });
       const response = await fetch(`/api/stock-analysis?${queryParams}`);
       if (!response.ok) throw new Error('Failed to fetch analyses');
@@ -124,8 +124,8 @@ function StockAnalysisManager() {
   if (error) return <div>Error: {error}</div>;
 
   return (
-    <div className="space-y-4">
-      <div className="flex space-x-4">
+    <div className="space-y-3">
+      <div className="flex space-x-3">
         <Select onValueChange={(value) => handleFilterChange('sector', value)}>
           <SelectTrigger>
             <SelectValue placeholder="Filter by Sector" />
@@ -147,9 +147,11 @@ function StockAnalysisManager() {
             <SelectValue placeholder="Filter by Rating" />
           </SelectTrigger>
           <SelectContent>
+            <SelectItem value="Strong Buy">Strong Buy</SelectItem>
             <SelectItem value="Buy">Buy</SelectItem>
             <SelectItem value="Hold">Hold</SelectItem>
             <SelectItem value="Sell">Sell</SelectItem>
+            <SelectItem value="Strong Sell">Strong Sell</SelectItem>
           </SelectContent>
         </Select>
       </div>
