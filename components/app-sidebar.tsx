@@ -64,24 +64,24 @@ const data = {
       icon: SquareTerminal,
       isActive: true,
       items: [
-        {
-          title: "History",
-          url: "#",
-          icon: History,
-          description: "View your recent prompts",
-        },
-        {
-          title: "Starred",
-          url: "#",
-          icon: Star,
-          description: "Browse your starred prompts",
-        },
-        {
-          title: "Settings",
-          url: "#",
-          icon: Settings2,
-          description: "Configure your playground",
-        },
+        // {
+        //   title: "History",
+        //   url: "#",
+        //   icon: History,
+        //   description: "View your recent prompts",
+        // },
+        // {
+        //   title: "Starred",
+        //   url: "#",
+        //   icon: Star,
+        //   description: "Browse your starred prompts",
+        // },
+        // {
+        //   title: "Settings",
+        //   url: "#",
+        //   icon: Settings2,
+        //   description: "Configure your playground",
+        // },
       ],
     },
     {
@@ -198,6 +198,11 @@ const data = {
   ],
   projects: [
     {
+      name: "Pantera Picks",
+      url: "pantera-picks",
+      icon: LifeBuoy,
+    },
+    {
       name: "Top Performing",
       url: "top-performing",
       icon: PieChart,
@@ -254,10 +259,10 @@ export function AppSidebar() {
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <SidebarItem>
-          <SidebarLabel>Platform</SidebarLabel>
-          <NavMain items={data.navMain} searchResults={data.searchResults} />
-        </SidebarItem>
+        {/* <SidebarItem> */}
+          {/* <SidebarLabel>Platform</SidebarLabel> */}
+          {/* <NavMain items={data.navMain} searchResults={data.searchResults} /> */}
+        {/* </SidebarItem> */}
         <SidebarItem>
           <SidebarLabel>Projects</SidebarLabel>
           <NavProjects projects={data.projects} />
