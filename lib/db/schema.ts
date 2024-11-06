@@ -7,6 +7,7 @@ import {
   integer,
   date,
   decimal,
+  numeric,
 } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
@@ -136,6 +137,24 @@ export const topPerforming = pgTable('top_performing', {
   latestRating: varchar('latest_rating', { length: 20 }),
 });
 
+export const panteraPicks = pgTable('pantera_picks', {
+  id: serial('id').primaryKey(),
+  company: text('company').notNull(),
+  companyLogoUrl: text('company_logo_url'),
+  symbol: varchar('symbol', { length: 10 }).notNull(),
+  symbolHref: text('symbol_href'),
+  pickedDate: date('picked_date').notNull(),
+  purchasePrice: numeric('purchase_price', { precision: 10, scale: 2 }).notNull(),
+  closedDate: text('closed_date'),
+  sellPrice: text('sell_price'),
+  returnPercentage: text('return_percentage'),
+  spyPercentage: text('spy_percentage'),
+  differencePercentage: text('difference_percentage'),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').defaultNow(),
+});
+
+
 export type User = typeof users.$inferSelect;
 export type NewUser = typeof users.$inferInsert;
 export type Team = typeof teams.$inferSelect;
@@ -167,3 +186,20 @@ export enum ActivityType {
 
 export type TopPerforming = typeof topPerforming.$inferSelect;
 export type NewTopPerforming = typeof topPerforming.$inferInsert;
+export type PanteraPick = typeof panteraPicks.$inferSelect;
+export type NewPanteraPick = typeof panteraPicks.$inferInsert;
+
+export interface TransformedPanteraPick {
+  id: number;
+  company: string;
+  companyLogoUrl: string | null;
+  symbol: string;
+  symbolHref: string | null;
+  pickedDate: string;
+  purchasePrice: number;
+  closedDate: string | null;
+  sellPrice: string | null;
+  returnPercentage: string | null;
+  spyPercentage: string | null;
+  differencePercentage: string | null;
+}

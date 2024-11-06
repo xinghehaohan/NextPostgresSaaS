@@ -89,7 +89,10 @@ async function getPostgresURL(): Promise<string> {
     return 'postgres://postgres:postgres@localhost:54322/postgres';
   } else {
     console.log(
-      'You can find Postgres databases at: https://vercel.com/marketplace?category=databases'
+      'You can find Postgres databases at:\n' +
+      '- https://vercel.com/storage/postgres\n' +
+      '- https://neon.tech\n' +
+      '- https://railway.app'
     );
     return await question('Enter your POSTGRES_URL: ');
   }
