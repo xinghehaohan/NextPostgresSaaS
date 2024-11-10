@@ -55,16 +55,16 @@ export function Header() {
                   </Avatar>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="flex flex-col gap-1">
+                <DropdownMenuItem className="cursor-pointer">
+                    <Link href="/pantera-picks" className="flex w-full items-center">
+                      <Notebook className="mr-2 h-4 w-4" />
+                      <span>Analysts</span>
+                    </Link>
+                  </DropdownMenuItem>
                   <DropdownMenuItem className="cursor-pointer">
                     <Link href="/dashboard" className="flex w-full items-center">
                       <Home className="mr-2 h-4 w-4" />
                       <span>Dashboard</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="cursor-pointer">
-                    <Link href="/top-performing" className="flex w-full items-center">
-                      <Notebook className="mr-2 h-4 w-4" />
-                      <span>Analysts</span>
                     </Link>
                   </DropdownMenuItem>
                   <form action={handleSignOut} className="w-full">

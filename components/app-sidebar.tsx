@@ -37,24 +37,24 @@ import {
 const data = {
   teams: [
     {
-      name: "Acme Inc",
+      name: "PanteraHub",
       logo: Atom,
       plan: "Enterprise",
     },
-    {
-      name: "Acme Corp.",
-      logo: Eclipse,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Rabbit,
-      plan: "Free",
-    },
+    // {
+    //   name: "Acme Corp.",
+    //   logo: Eclipse,
+    //   plan: "Startup",
+    // },
+    // {
+    //   name: "Evil Corp.",
+    //   logo: Rabbit,
+    //   plan: "Free",
+    // },
   ],
   user: {
-    name: "shadcn",
-    email: "m@example.com",
+    name: "su",
+    email: "lianna1993su@gmail.com",
     avatar: "/avatars/shadcn.jpg",
   },
   navMain: [
@@ -203,14 +203,14 @@ const data = {
       icon: LifeBuoy,
     },
     {
-      name: "Crypto Insights",
-      url: "crypto-insights",
-      icon: Star,
-    },
-    {
       name: "Top Performing",
       url: "top-performing",
       icon: PieChart,
+    },
+    {
+      name: "Crypto Insights",
+      url: "crypto-insights",
+      icon: Star,
     },
     {
       name: "Top Analyst Ideas",
@@ -272,13 +272,13 @@ export function AppSidebar() {
           <SidebarLabel>Projects</SidebarLabel>
           <NavProjects projects={data.projects} />
         </SidebarItem>
-        <SidebarItem className="mt-auto">
+        {/* <SidebarItem className="mt-auto">
           <SidebarLabel>Help</SidebarLabel>
           <NavSecondary items={data.navSecondary} />
-        </SidebarItem>
-        <SidebarItem>
+        </SidebarItem> */}
+        {/* <SidebarItem>
           <StorageCard />
-        </SidebarItem>
+        </SidebarItem> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
