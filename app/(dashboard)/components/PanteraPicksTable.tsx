@@ -90,6 +90,29 @@ const columns: ColumnDef<TransformedPanteraPick>[] = [
     cell: ({ row }) => formatDate(row.original.pickedDate),
   },
   {
+    accessorKey: "returnPercentage",
+    header: ({ column }) => (
+      <Button
+        variant="ghost"
+        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+      >
+        Return %
+        <ArrowUpDown className="ml-2 h-4 w-4" />
+      </Button>
+    ),
+    cell: ({ row }) => (
+      <span
+        className={
+          (row.original.returnPercentage ?? 0) >= 0 
+            ? "text-green-600" 
+            : "text-red-600"
+        }
+      >
+        {formatPercentage(row.original.returnPercentage)}
+      </span>
+    ),
+  },
+  {
     accessorKey: "purchasePrice",
     header: ({ column }) => (
       <Button
@@ -129,29 +152,6 @@ const columns: ColumnDef<TransformedPanteraPick>[] = [
     cell: ({ row }) => row.original.sellPrice ? formatPrice(row.original.sellPrice) : '-',
   },
   {
-    accessorKey: "returnPercentage",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Return %
-        <ArrowUpDown className="ml-2 h-4 w-4" />
-      </Button>
-    ),
-    cell: ({ row }) => (
-      <span
-        className={
-          (row.original.returnPercentage ?? 0) >= 0 
-            ? "text-green-600" 
-            : "text-red-600"
-        }
-      >
-        {formatPercentage(row.original.returnPercentage)}
-      </span>
-    ),
-  },
-  {
     accessorKey: "spyPercentage",
     header: ({ column }) => (
       <Button
@@ -162,7 +162,15 @@ const columns: ColumnDef<TransformedPanteraPick>[] = [
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
-    cell: ({ row }) => formatPercentage(row.original.spyPercentage),
+    cell: ({ row }) => (      <span
+      className={
+        (row.original.spyPercentage ?? 0) >= 0 
+          ? "text-green-600" 
+          : "text-red-600"
+      }
+    >
+      {formatPercentage(row.original.spyPercentage)}
+    </span>),
   },
   {
     accessorKey: "differencePercentage",
@@ -194,7 +202,12 @@ interface PanteraPicksTableProps {
 }
 
 export function PanteraPicksTable({ data }: PanteraPicksTableProps) {
-  const [sorting, setSorting] = useState<SortingState>([]);
+  const [sorting, setSorting] = useState<SortingState>([
+    {
+      id: "pickedDate",
+      desc: true
+    }
+  ]);
 
   const table = useReactTable({
     data,
