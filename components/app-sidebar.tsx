@@ -203,6 +203,11 @@ const data = {
       icon: LifeBuoy,
     },
     {
+      name: "Crypto Insights",
+      url: "crypto-insights",
+      icon: Star,
+    },
+    {
       name: "Top Performing",
       url: "top-performing",
       icon: PieChart,

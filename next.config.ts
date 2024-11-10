@@ -5,6 +5,14 @@ const nextConfig: NextConfig = {
   //   ppr: true,
   // },
   // 
+  images: {
+    domains: [
+      'rc-cdn.seekingalpha.com'
+    ],
+  },
+  experimental: {
+    serverActions: true,
+  },
   typescript: {
     ignoreBuildErrors: true,
   },

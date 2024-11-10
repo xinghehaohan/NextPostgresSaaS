@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useUser } from "@/lib/auth";
 
 // Define routes that should not use the dashboard layout
-const standaloneRoutes = ["/stock-analysis", "/top-performing","/pantera-picks"];
+const standaloneRoutes = ["/stock-analysis", "/top-performing","/pantera-picks","/crypto-insights"];
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();

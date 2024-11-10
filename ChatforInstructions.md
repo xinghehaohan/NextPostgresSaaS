@@ -65,3 +65,34 @@ This setup should provide a responsive and user-friendly interface for managing 
 
 
 <!-- #the stock analysis detail page will have the full analysis content, and a sidebar with related news, and a sidebar with related comments -->
+
+// Array to store extracted data
+const messages = [];
+
+document.querySelectorAll('.rcx-message-container').forEach(container => {
+    // Object to store data for each message
+    const messageData = {};
+
+    // Get the text content of div with data-qa-type="message-body"
+    const messageBody = container.querySelector('div[data-qa-type="message-body"]');
+    if (messageBody) {
+        messageData.body = messageBody.textContent.trim();
+    }
+
+    // Get the text content of span with class "rcx-message-header__time"
+    const messageTime = container.querySelector('span.rcx-message-header__time');
+    if (messageTime) {
+        messageData.time = messageTime.textContent.trim();
+    }
+
+    // Get the src attribute of img with class "gallery-item"
+    const galleryImage = container.querySelector('img.gallery-item');
+    if (galleryImage) {
+        messageData.imageSrc = galleryImage.src;
+    }
+
+    // Push the collected data to the messages array
+    messages.push(messageData);
+});
+
+console.log(messages);
