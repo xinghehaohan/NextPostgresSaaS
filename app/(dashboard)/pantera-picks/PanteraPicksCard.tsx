@@ -45,6 +45,10 @@ export default function PanteraPicksCard() {
           <CardTitle>Pantera Picks</CardTitle>
         </CardHeader>
         <CardContent>
+          {/* <List> */}
+          Three Potential Strategies
+  
+          {/* </List> */}
           <PanteraPicksTable data={picks} />
         </CardContent>
       </Card>

@@ -48,10 +48,10 @@ const columns: ColumnDef<TransformedPanteraPick>[] = [
             <img
               src={logo}
               alt={`${row.original.company} logo`}
-              className="h-6 w-6 rounded-full"
+              className="h-12 w-12 rounded-md border"
             />
           )}
-          {row.original.company}
+          <div className="font-semibold">{row.original.company}</div>
         </div>
       );
     },
@@ -72,7 +72,7 @@ const columns: ColumnDef<TransformedPanteraPick>[] = [
         href={`/stock-analysis/${row.original.symbol}`}
         className="text-blue-600 hover:underline"
       >
-        {row.original.symbol}
+        <div className="text-lg font-semibold">{row.original.symbol}</div>
       </Link>
     ),
   },
